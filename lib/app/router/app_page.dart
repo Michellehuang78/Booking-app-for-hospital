@@ -24,6 +24,7 @@ class AppPage {
     _pageBuilder(
       name: AppRoute.home,
       page: () => const HomePage(),
+      binding: HomeBinding(),
     ),
     _pageBuilder(
       name: AppRoute.login,

@@ -11,9 +11,7 @@ class SingUpPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            Text('Hello'),
-          ],
+          children: [],
         ),
       ),
     );

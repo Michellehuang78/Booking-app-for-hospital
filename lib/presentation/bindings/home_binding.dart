@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:flutter_booking/presentation/controllers/login_controller.dart';
+import 'package:flutter_booking/presentation/controllers/home_controller.dart';
 
-class HomeBiding extends Bindings {
+class HomeBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => LoginController());
+    Get.lazyPut(() => HomeController());
   }
 }

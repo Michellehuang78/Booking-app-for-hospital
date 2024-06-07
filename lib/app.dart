@@ -11,7 +11,7 @@ class BookingApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: AppPage.routes,
-      initialRoute: AppRoute.signUp,
+      initialRoute: AppRoute.home,
     );
   }
 }
