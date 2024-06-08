@@ -22,11 +22,6 @@ class AppPage {
 
   static List<GetPage> routes = [
     _pageBuilder(
-      name: AppRoute.home,
-      page: () => const HomePage(),
-      binding: HomeBinding(),
-    ),
-    _pageBuilder(
       name: AppRoute.login,
       page: () => const LoginPage(),
       binding: LoginBinding(),
@@ -35,6 +30,36 @@ class AppPage {
       name: AppRoute.signUp,
       page: () => const SingUpPage(),
       binding: SignUpBinding(),
+    ),
+    _pageBuilder(
+      name: AppRoute.forgetPwd,
+      page: () => const ForgetPasswordPage(),
+      binding: ForgetPasswordBinding(),
+    ),
+    _pageBuilder(
+      name: AppRoute.home,
+      page: () => const HomePage(),
+      binding: HomeBinding(),
+    ),
+    _pageBuilder(
+      name: AppRoute.notification,
+      page: () => const NotificationPage(),
+      binding: NotificationBinding(),
+    ),
+    _pageBuilder(
+      name: AppRoute.booking,
+      page: () => const BookingPage(),
+      binding: BookingBinding(),
+    ),
+    _pageBuilder(
+      name: AppRoute.moment,
+      page: () => const MomentPage(),
+      binding: MomentBinding(),
+    ),
+    _pageBuilder(
+      name: AppRoute.profile,
+      page: () => const ProfilePage(),
+      binding: ProfileBinding(),
     ),
   ];
 }
