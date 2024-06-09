@@ -7,6 +7,7 @@ class AppColor {
   static Color white = AppColorExtension("#FFFFFF");
   static Color black = AppColorExtension("#000000");
   static Color lightGray = AppColorExtension("#CFCFCF");
+  static Color darkGray = AppColorExtension("#262626");
 
   static Color defaultTxtClr = AppColorExtension("#14304A");
   static Color hintTxtClr = AppColorExtension("#C4C4C4");
