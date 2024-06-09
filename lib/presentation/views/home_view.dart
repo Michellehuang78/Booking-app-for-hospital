@@ -35,6 +35,7 @@ class HomePage extends GetView<HomeController> with HomeMixin {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               24.heightBox(),
+              Text("Hello"),
               RichText(
                 text: TextSpan(
                   style: AppTextStyle.customTextStyle(
