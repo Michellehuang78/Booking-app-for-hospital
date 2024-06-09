@@ -13,3 +13,17 @@ extension CustomBox on int {
     );
   }
 }
+
+extension CustomBox2 on double {
+  Widget widthBox() {
+    return SizedBox(
+      width: toDouble(),
+    );
+  }
+
+  Widget heightBox() {
+    return SizedBox(
+      height: toDouble(),
+    );
+  }
+}

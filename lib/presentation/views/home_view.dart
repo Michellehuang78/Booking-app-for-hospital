@@ -22,7 +22,12 @@ class HomePage extends GetView<HomeController> with HomeMixin {
           ),
         ),
       ),
-      endDrawer: _buildDrawer(),
+      endDrawer: _buildDrawer(
+        onTapNotification: controller.notification,
+        onTapBooking: controller.booking,
+        onTapMoment: controller.moment,
+        onTapProfile: controller.profile,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -111,55 +116,53 @@ Widget _buildCalendar({
   }
   final double calendarHeight = screenHeight * .5;
   final double dayPerHeight = calendarHeight / colCount;
-  return Container(
-    child: Column(
-      children: [
-        SizedBox(
-          width: double.infinity,
-          height: 28,
-          child: Row(
-            children: List.generate(
-              daysInWeek,
-              (index) => Container(
-                padding: const EdgeInsets.symmetric(vertical: 4),
-                width: dayPerWidth,
-                child: Center(
-                  child: Text(labels[index]),
-                ),
+  return Column(
+    children: [
+      SizedBox(
+        width: double.infinity,
+        height: 28,
+        child: Row(
+          children: List.generate(
+            daysInWeek,
+            (index) => Container(
+              padding: const EdgeInsets.symmetric(vertical: 4),
+              width: dayPerWidth,
+              child: Center(
+                child: Text(labels[index]),
               ),
             ),
           ),
         ),
-        mediumVerticalSpace,
-        Column(
-          children: List.generate(colCount, (colIndex) {
-            return IntrinsicHeight(
-              child: Row(
-                children: List.generate(daysInWeek, (rowIndex) {
-                  return Container(
-                    padding: const EdgeInsets.symmetric(vertical: 4),
-                    width: dayPerWidth,
-                    height: dayPerHeight,
-                    child: Center(
-                      child: _buildDate(
-                        colIndex: colIndex,
-                        rowIndex: rowIndex,
-                        today: today,
-                        firstDayOfWeek: firstDayOfWeek,
-                        daysInWeek: daysInWeek,
-                        daysInPreviousMonth: daysInPreviousMonth,
-                        daysInMonth: daysInMonth,
-                        daysInNextMonth: daysInNextMonth,
-                      ),
+      ),
+      mediumVerticalSpace,
+      Column(
+        children: List.generate(colCount, (colIndex) {
+          return IntrinsicHeight(
+            child: Row(
+              children: List.generate(daysInWeek, (rowIndex) {
+                return Container(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  width: dayPerWidth,
+                  height: dayPerHeight,
+                  child: Center(
+                    child: _buildDate(
+                      colIndex: colIndex,
+                      rowIndex: rowIndex,
+                      today: today,
+                      firstDayOfWeek: firstDayOfWeek,
+                      daysInWeek: daysInWeek,
+                      daysInPreviousMonth: daysInPreviousMonth,
+                      daysInMonth: daysInMonth,
+                      daysInNextMonth: daysInNextMonth,
                     ),
-                  );
-                }),
-              ),
-            );
-          }),
-        )
-      ],
-    ),
+                  ),
+                );
+              }),
+            ),
+          );
+        }),
+      )
+    ],
   );
 }
 
@@ -228,7 +231,13 @@ Widget _buildDate({
   }
 }
 
-Widget _buildDrawer() => Drawer(
+Widget _buildDrawer({
+  required Function onTapNotification,
+  required Function onTapBooking,
+  required Function onTapMoment,
+  required Function onTapProfile,
+}) =>
+    Drawer(
       shape: const RoundedRectangleBorder(),
       backgroundColor: AppColor.drawerBgClr,
       child: SafeArea(
@@ -256,19 +265,19 @@ Widget _buildDrawer() => Drawer(
                   children: <Widget>[
                     _buildDrawerItem(
                       label: "通知",
-                      onTapLabel: () {},
+                      onTapLabel: () => onTapNotification.call(),
                     ),
                     _buildDrawerItem(
                       label: "預約補課／諮詢",
-                      onTapLabel: () {},
+                      onTapLabel: () => onTapBooking.call(),
                     ),
                     _buildDrawerItem(
                       label: "成長點滴",
-                      onTapLabel: () {},
+                      onTapLabel: () => onTapMoment.call(),
                     ),
                     _buildDrawerItem(
                       label: "我的帳號",
-                      onTapLabel: () {},
+                      onTapLabel: () => onTapProfile.call(),
                     ),
                   ],
                 ),

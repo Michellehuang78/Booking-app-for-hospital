@@ -28,7 +28,7 @@ class AppPage {
     ),
     _pageBuilder(
       name: AppRoute.signUp,
-      page: () => const SingUpPage(),
+      page: () => const SignUpPage(),
       binding: SignUpBinding(),
     ),
     _pageBuilder(

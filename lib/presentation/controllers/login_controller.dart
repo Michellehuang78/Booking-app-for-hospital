@@ -13,7 +13,7 @@ class LoginController extends GetxController {
 
   void login() {
     // TODO: login action
-
+    AppNavigator.startHome();
   }
 
   void forgetPwd() {
